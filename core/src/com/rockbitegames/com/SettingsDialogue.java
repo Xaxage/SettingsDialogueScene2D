@@ -45,26 +45,15 @@ public class SettingsDialogue extends ApplicationAdapter {
         textFieldStyle.fontColor = Color.WHITE;
         textFieldStyle.messageFontColor = Color.WHITE;
 
+
+
+        //Creating blank table
         final Table container = new Table();
         container.setFillParent(true);
 
-//		textFieldStyle.cursor  = some textureregion;
-
-//		TextButton textButton = new TextButton("Button",textFieldStyle);
 
 
-        // variant 2
-//		TextureRegionDrawable drawable = new TextureRegionDrawable(atlas.findRegion("dialog-bg"));
-
-//		TextButton textButton = new TextButton("test textField", this.uiSkin);
-
-//		Label nameLabel = new Label("Name:", this.uiSkin);
-//		TextField nameText = new TextField("", this.uiSkin);
-//		Label addressLabel = new Label("Address:", this.uiSkin);
-//		TextField addressText = new TextField("", this.uiSkin);
-        //dialog-bg
-
-        //Creating root table
+        //Creating content table
         patch = atlas.createPatch("dialog-bg");
         NinePatchDrawable drawable = new NinePatchDrawable(patch);
 
@@ -75,23 +64,27 @@ public class SettingsDialogue extends ApplicationAdapter {
         content.top();
         container.add(content).grow();//.pad(50);
 
+
+
         //Creating header
-        Table headerTable = new Table();
         patch = atlas.createPatch("header-flexible");
         drawable = new NinePatchDrawable(patch);
-        Label settingsLabel = new Label("Settings",labelStyle);
-//        settingsLabel.setFontScale(2f);
+
+        Table headerTable = new Table();
         headerTable.top();
+
+        Label settingsLabel = new Label("Settings",labelStyle);
+//        settingsLabel.setFontScale(2f);//Very bad choice
         headerTable.add(settingsLabel);
         headerTable.setBackground(drawable);
 
 
 
-
         //Creating dialog-inside-box and adding it
-        Table innerBackgroundTable = new Table();
         patch = atlas.createPatch("dialog-inside-box");
         drawable = new NinePatchDrawable(patch);
+
+        Table innerBackgroundTable = new Table();
         innerBackgroundTable.setBackground(drawable);
         innerBackgroundTable.top().left();//When we say table.top() it'll any item we add will start from the top
 
