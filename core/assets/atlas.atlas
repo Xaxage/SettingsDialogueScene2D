@@ -1,5 +1,5 @@
-trueV2.png
-size: 512, 765
+atlas.png
+size: 512, 723
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -60,47 +60,47 @@ btn-yellow
 dialog-bg
   rotate: false
   xy: 228, 0
-  size: 138, 138
-  split: 67, 67, 67, 67
+  size: 96, 96
+  split: 46, 46, 46, 46
   pad: 0, 0, 0, 0
-  orig: 138, 138
+  orig: 96, 96
   offset: 0, 0
   index: -1
 dialog-inside-box
   rotate: false
-  xy: 366, 0
+  xy: 324, 0
   size: 52, 52
   split: 24, 24, 22, 26
   pad: 0, 0, 0, 0
   orig: 52, 52
   offset: 0, 0
   index: -1
-font
+generated
   rotate: false
-  xy: 0, 138
+  xy: 0, 96
   size: 512, 512
   orig: 512, 512
   offset: 0, 0
   index: -1
 header-flexible
   rotate: false
-  xy: 0, 650
+  xy: 0, 608
   size: 82, 115
-  split: 39, 39, 1, 83
-  pad: 0, 0, 16, 83
+  split: 39, 39, 0, 0
+  pad: 0, 0, 0, 0
   orig: 82, 115
   offset: 0, 0
   index: -1
 ic-close
   rotate: false
-  xy: 82, 650
+  xy: 82, 608
   size: 72, 72
   orig: 72, 72
   offset: 0, 0
   index: -1
 input-txt-box
   rotate: false
-  xy: 154, 650
+  xy: 154, 608
   size: 62, 62
   split: 29, 29, 29, 29
   pad: 0, 0, 0, 0
