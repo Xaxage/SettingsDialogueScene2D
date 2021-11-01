@@ -3,7 +3,6 @@ package com.rockbitegames.com.ui;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
@@ -26,30 +25,37 @@ public class TextButton extends Table {
     private BitmapFont fnt;
     private Label.LabelStyle labelStyle;
     protected Label buttonTextLabel;
-    private Map<String, NinePatchDrawable> ninePatchDrawableMap = new HashMap<>();
 
 
     // todo:
-    private Drawable clickedBg;
-    private Drawable toggledBg;
-    private Drawable normalBg;
+    protected Drawable defaultBg;
+    protected Drawable defaultPressedBg;
+
+    private Drawable currentBg;
+    private Drawable currentPressedBg;
 
     private boolean toggled = false;
 
-    public TextButton(String labelText) {
-        init(labelText);
+    public TextButton(String defaultText, String defaultBg, String defaultPressedBg) {
+        init(defaultText, defaultBg, defaultPressedBg);
         add(buttonTextLabel);//Adding Label to the table
     }
 
-    private void init(String text) {
+    private void init(String defaultText, String defaultBg, String defaultPressedBg) {
         this.fnt = new BitmapFont(Gdx.files.internal("font.fnt"));
         this.labelStyle = new Label.LabelStyle(fnt, Color.WHITE);
-        this.buttonTextLabel = new Label(text, labelStyle);
+        this.buttonTextLabel = new Label(defaultText, labelStyle);
         buttonTextLabel.setAlignment(Align.center);
         this.clickListener = new ClickListener();
         this.setTouchable(Touchable.enabled);
         this.addListener(clickListener);
-//        fillNinePatches();
+
+        this.defaultBg = ResourceManager.Get().obtainDrawable(defaultBg);
+        this.defaultPressedBg = ResourceManager.Get().obtainDrawable(defaultPressedBg);
+
+        currentBg = this.defaultBg;
+        currentPressedBg = this.defaultPressedBg;
+
 
         addListener(new ClickListener() {
             @Override
@@ -59,31 +65,6 @@ public class TextButton extends Table {
         });
     }
 
-
-//    private void fillNinePatches() {
-//        NinePatch patch;
-//        NinePatchDrawable ninePatchDrawable;
-//
-//        //Create skin add atlas then obtain it
-//
-//        patch = textureAtlas.createPatch("btn-green");
-//        ninePatchDrawable = new NinePatchDrawable(patch);
-//        ninePatchDrawableMap.put("btn-green", ninePatchDrawable);
-//        patch = textureAtlas.createPatch("btn-green-pressed");
-//        ninePatchDrawable = new NinePatchDrawable(patch);
-//        ninePatchDrawableMap.put("btn-green-pressed", ninePatchDrawable);
-//
-//        patch = textureAtlas.createPatch("btn-red");
-//        ninePatchDrawable = new NinePatchDrawable(patch);
-//        ninePatchDrawableMap.put("btn-red", ninePatchDrawable);
-//        patch = textureAtlas.createPatch("btn-red-pressed");
-//        ninePatchDrawable = new NinePatchDrawable(patch);
-//        ninePatchDrawableMap.put("btn-red-pressed", ninePatchDrawable);
-//
-//        System.out.println(ninePatchDrawableMap);
-//
-//
-//    }
 
     @Override
     public void act(float delta) {
@@ -107,13 +88,22 @@ public class TextButton extends Table {
 //        }
 
         if (clickListener.isVisualPressed()) {
-            setBackground(ResourceManager.Get().obtainDrawable("btn-green-pressed"));
+            setBackground(currentPressedBg);
         } else {
-            setBackground(ResourceManager.Get().obtainDrawable("btn-green"));
+            setBackground(currentBg);
         }
 
 
     }
+
+    protected void setCurrentBg(Drawable currentBg) {
+        this.currentBg = currentBg;
+    }
+
+    protected void setCurrentPressedBg(Drawable currentPressedBg) {
+        this.currentPressedBg = currentPressedBg;
+    }
+
 }
 
 

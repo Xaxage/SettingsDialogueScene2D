@@ -2,7 +2,6 @@ package com.rockbitegames.com.ui;
 
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.rockbitegames.com.ResourceManager;
 
@@ -24,10 +23,11 @@ public abstract class AbstractDialog extends Table {
         Table content = buildContent();
         content.setBackground(ResourceManager.Get().obtainDrawable("dialog-inside-box"));
 
-        pad(5);
+        pad(5);//Distance between main table and inner background
         add(content).grow().pad(5);
     }
 
+    //Header using Stack
 //    private Stack buildHeader(String title) {
 //        Stack headerStack = new Stack();
 //        Table headerCoverTable = new Table();//Table that contains our cover table and cover itself

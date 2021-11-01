@@ -2,10 +2,12 @@ package com.rockbitegames.com;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 
@@ -19,6 +21,7 @@ public class ResourceManager {
 
     private boolean initialized = false;
     private Label.LabelStyle labelStyle;
+    private TextField.TextFieldStyle textFieldStyle;
 
     private ResourceManager() {
 
@@ -36,6 +39,13 @@ public class ResourceManager {
         BitmapFont fnt = new BitmapFont(Gdx.files.internal("font.fnt"));
         labelStyle = new Label.LabelStyle();
         labelStyle.font = fnt;
+
+        textFieldStyle = new TextField.TextFieldStyle();
+        textFieldStyle.font = fnt;
+        textFieldStyle.focusedFontColor = Color.WHITE;
+        textFieldStyle.disabledFontColor = Color.WHITE;
+        textFieldStyle.fontColor = Color.WHITE;
+        textFieldStyle.messageFontColor = Color.WHITE;
 
 
         initialized = true;
@@ -59,4 +69,7 @@ public class ResourceManager {
         return labelStyle;
     }
 
+    public TextField.TextFieldStyle getTextFieldStyle() {
+        return textFieldStyle;
+    }
 }

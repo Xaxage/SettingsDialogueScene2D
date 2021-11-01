@@ -1,44 +1,57 @@
-//package com.rockbitegames.com.ui_staff;
-//
-//import com.badlogic.gdx.graphics.g2d.Batch;
-//import com.badlogic.gdx.scenes.scene2d.ui.Label;
-//import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-//import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
-//
-//public class ToggleButton extends MyTextButton {
-//    private final String onText = "On";
-//    private final String offText = "Off";
-//    private final ClickListener clickListener;
-//    private boolean isClicked = false;
-//
-//    private NinePatchDrawable nextBackground;
-//    private NinePatchDrawable nextBackgroundPressed;
-//
-//    public ToggleButton(String labelText, NinePatchDrawable background, NinePatchDrawable backgroundPressed,
-//                        NinePatchDrawable nextBackground, NinePatchDrawable nextBackgroundPressed) {
-//        super(labelText, background, backgroundPressed);
-//        this.nextBackground = nextBackground;
-//        this.nextBackgroundPressed = nextBackgroundPressed;
-//        clickListener = new ClickListener();
-//
-//    }
-//
-//    @Override
-//    public void draw(Batch batch, float parentAlpha) {
-//        super.draw(batch, parentAlpha);
-//
-//        if(clickListener.isPressed()){
-//            if(!isClicked){
-//                isClicked = true;
-//                buttonTextLabel.setText(onText);
-//                setBackground(nextBackground);
-//            }else{
-//                isClicked = false;
-//                buttonTextLabel.setText(offText);
-//                buttonTextLabel.setText(onText);
-//            }
-//        }
-//
-//
-//    }
-//}
+package com.rockbitegames.com.ui;
+
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.rockbitegames.com.ResourceManager;
+
+public class ToggleButton extends TextButton {
+    private String defaultText;
+    private String changedText;
+    private boolean toggled = false;
+
+    private Drawable toggledBg;//todo: replace in ToggleButton
+    private Drawable toggledPressedBg;//todo: replace in ToggleButton
+
+
+    public ToggleButton(String defaultText, String changedText, String toggledBg, String toggledPressedBg) {
+        super(defaultText, "btn-green", "btn-green-pressed");
+
+
+        init(defaultText, changedText, toggledBg, toggledPressedBg);
+    }
+
+    private void init(String defaultText, String changedText, String toggledBg, String toggledPressedBg) {
+        this.defaultText = defaultText;
+        this.changedText = changedText;
+        this.toggledBg = ResourceManager.Get().obtainDrawable(toggledBg);
+        this.toggledPressedBg = ResourceManager.Get().obtainDrawable(toggledPressedBg);
+
+
+        addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                toggled = !toggled; // true -> false
+                update();
+            }
+        });
+    }
+
+    private void update() {
+        if (toggled) {
+            buttonTextLabel.setText(changedText);
+            super.setCurrentPressedBg(toggledPressedBg);
+            super.setCurrentBg(toggledBg);
+        } else {
+            buttonTextLabel.setText(defaultText);
+            super.setCurrentPressedBg(defaultPressedBg);
+            super.setCurrentBg(defaultBg);
+        }
+    }
+
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        super.draw(batch, parentAlpha);
+    }
+}
