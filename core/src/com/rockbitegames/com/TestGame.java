@@ -7,7 +7,6 @@ public class TestGame extends Game {
 
 
     public TestGame() {
-//test
 
     }
 
