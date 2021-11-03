@@ -16,7 +16,7 @@ public class InputBox extends Table{
 
         this.defaultBg = ResourceManager.Get().obtainDrawable(defaultBg);
         this.setBackground(this.defaultBg);
-        this.add(textField).pad(10);
+        this.add(textField).growX().pad(5);
     }
 
 

@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../atlas.atlas</filename>
+                <filename>splashScreen.txt</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,26 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">C:/Users/rockbite/Desktop/generated.png</key>
-            <key type="filename">C:/Users/rockbite/Desktop/medium.png</key>
-            <key type="filename">C:/Users/rockbite/Desktop/small.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>128,128,256,256</rect>
-                <key>scale9Paddings</key>
-                <rect>128,128,256,256</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">btn-green-pressed.9.png</key>
-            <key type="filename">btn-red-pressed.9.png</key>
-            <key type="filename">btn-yellow-pressed.9.png</key>
+            <key type="filename">../raw_assets/btn-green-pressed.9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -215,9 +196,7 @@
                 <key>scale9FromFile</key>
                 <true/>
             </struct>
-            <key type="filename">btn-green.9.png</key>
-            <key type="filename">btn-red.9.png</key>
-            <key type="filename">btn-yellow.9.png</key>
+            <key type="filename">../raw_assets/btn-green.9.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -232,52 +211,7 @@
                 <key>scale9FromFile</key>
                 <true/>
             </struct>
-            <key type="filename">dialog-bg.9.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <true/>
-                <key>scale9Borders</key>
-                <rect>46,46,4,4</rect>
-                <key>scale9Paddings</key>
-                <rect>0,0,96,96</rect>
-                <key>scale9FromFile</key>
-                <true/>
-            </struct>
-            <key type="filename">dialog-inside-box.9.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <true/>
-                <key>scale9Borders</key>
-                <rect>24,22,4,4</rect>
-                <key>scale9Paddings</key>
-                <rect>0,0,52,52</rect>
-                <key>scale9FromFile</key>
-                <true/>
-            </struct>
-            <key type="filename">header-flexible.9.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <true/>
-                <key>scale9Borders</key>
-                <rect>39,0,4,115</rect>
-                <key>scale9Paddings</key>
-                <rect>0,0,82,115</rect>
-                <key>scale9FromFile</key>
-                <true/>
-            </struct>
-            <key type="filename">ic-close.png</key>
+            <key type="filename">screen-bg.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -286,44 +220,18 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>18,18,36,36</rect>
+                <rect>186,348,372,696</rect>
                 <key>scale9Paddings</key>
-                <rect>18,18,36,36</rect>
+                <rect>186,348,372,696</rect>
                 <key>scale9FromFile</key>
                 <false/>
-            </struct>
-            <key type="filename">input-txt-box.9.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <true/>
-                <key>scale9Borders</key>
-                <rect>29,29,4,4</rect>
-                <key>scale9Paddings</key>
-                <rect>0,0,62,62</rect>
-                <key>scale9FromFile</key>
-                <true/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>btn-green-pressed.9.png</filename>
-            <filename>btn-green.9.png</filename>
-            <filename>btn-red-pressed.9.png</filename>
-            <filename>btn-red.9.png</filename>
-            <filename>btn-yellow-pressed.9.png</filename>
-            <filename>btn-yellow.9.png</filename>
-            <filename>dialog-bg.9.png</filename>
-            <filename>dialog-inside-box.9.png</filename>
-            <filename>header-flexible.9.png</filename>
-            <filename>ic-close.png</filename>
-            <filename>input-txt-box.9.png</filename>
-            <filename>C:/Users/rockbite/Desktop/generated.png</filename>
-            <filename>C:/Users/rockbite/Desktop/small.png</filename>
-            <filename>C:/Users/rockbite/Desktop/medium.png</filename>
+            <filename>screen-bg.png</filename>
+            <filename>../raw_assets/btn-green-pressed.9.png</filename>
+            <filename>../raw_assets/btn-green.9.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -3,10 +3,10 @@ package com.rockbitegames.com;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.rockbitegames.com.ui.AbstractDialog;
 import com.rockbitegames.com.ui.InputBox;
+import com.rockbitegames.com.ui.TextButton;
 import com.rockbitegames.com.ui.ToggleButton;
 
 public class SettingsDialog extends AbstractDialog {
@@ -20,55 +20,42 @@ public class SettingsDialog extends AbstractDialog {
     protected Table buildContent() {
         Table table = new Table();
 
-        Table playerContainer = buildPlayerContainer();//todo
+        Table playerContainer = buildPlayerContainer();
         Table soundContainer = buildSfxContainer();
-//        Table accountContainer = buildAccountContainer();//todo:
+        Table accountContainer = buildAccountContainer();
+        Table switchSaveContainer = buildSwitchSaveContainer();
 
         table.top();
 
-        table.add(playerContainer);
+        table.add(playerContainer).growX().pad(15);
         table.row();
 
-        table.add(soundContainer);
-        row();
+        table.add(soundContainer).growX().padTop(20).pad(15);
+        table.row();
 
-        // todo: add uid label
+        table.add(accountContainer).growX().pad(15).padTop(40);
+        table.row();
 
+        table.add(switchSaveContainer);
+        table.row();
+
+
+//        debugAll();
         return table;
     }
 
     private Table buildPlayerContainer() {
         Table table = new Table();
-        table.defaults().space(40).padTop(20);
+        table.defaults().space(10).padTop(20);
 
         Label nameLabel = new Label("Player Name:", ResourceManager.Get().getLabelStyle());
         nameLabel.setAlignment(Align.left);
         nameLabel.setEllipsis(true); //Троеточие, если не хватит меcта для полного текста
 
-        table.add(nameLabel).width(120).expandX().left();
-        table.add(new InputBox("input-txt-box"));
+        table.add(nameLabel).width(120).left();
 
-//
-//        patch = atlas.createPatch("input-txt-box");
-//        ninePatchDrawable = new NinePatchDrawable(patch);
-//        /*Giving textField it's background
-//     textFieldStyle.background =  drawable;
-//     But it's better to create another table and assign background to the table*/
-//
-//        TextField textField = new TextField("", textFieldStyle);
-//        Table textFieldWrapper = new Table();
-//        Table nameTable = new Table();
-//
-//        textFieldWrapper.add(textField).pad(10);
-//        textFieldWrapper.background(ninePatchDrawable);
-//
-//        nameTable.pad(15);
-//        nameTable.defaults().space(10); //Space between all the components
-//        nameTable.add(nameLabel).width(120).expandX().left();
-//        nameTable.add(textFieldWrapper).expandX().right();//.width(180);
-//
-//        innerBackgroundTable.add(nameTable).growX();
-//        innerBackgroundTable.row();
+        table.add(new InputBox("input-txt-box")).growX();
+
 
         return table;
     }
@@ -78,7 +65,7 @@ public class SettingsDialog extends AbstractDialog {
         Table musicTable = new Table();//Child table
         Table soundTable = new Table();//Child table
 
-        table.defaults().space(30).padTop(20);
+        table.defaults().space(55).padTop(20);
 
         Label musicLabel = new Label("Music", ResourceManager.Get().getLabelStyle());
         Label sfxLabel = new Label("Sfx", ResourceManager.Get().getLabelStyle());
@@ -102,6 +89,42 @@ public class SettingsDialog extends AbstractDialog {
         return table;
     }
 
+    private Table buildAccountContainer() {
+        Table table = new Table();
+
+        table.defaults().space(20).padTop(20);
+
+
+        Label googleLabel = new Label("Google", ResourceManager.Get().getLabelStyle());
+        googleLabel.setAlignment(Align.left);
+
+        ToggleButton linkButton = new ToggleButton("Link","Unlink","btn-red","btn-red-pressed");
+
+        table.add(googleLabel).expandX().width(120).left();
+        table.add(linkButton).expandX().width(120).right();
+
+        return table;
+    }
+
+    private Table buildSwitchSaveContainer() {
+        Table table = new Table();
+        table.defaults().space(30);
+
+        TextButton switchButton = new TextButton("Switch account","btn-green","btn-green-pressed");
+        switchButton.pad(10);
+
+        TextButton saveButton = new TextButton("Save","btn-yellow","btn-yellow-pressed");
+        switchButton.pad(10);
+
+        Label UID = new Label("uid:12jk31298312m412",ResourceManager.Get().getLabelStyle());
+
+
+        table.add(switchButton).grow().row();
+        table.add(saveButton).grow().row();
+        table.add(UID);
+        return table;
+    }
+
     @Override
     protected void declareDialogSize() {
         setSize(300, 400);
@@ -110,5 +133,6 @@ public class SettingsDialog extends AbstractDialog {
     public void setData() {
 
     }
+
 
 }

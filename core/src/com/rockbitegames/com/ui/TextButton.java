@@ -42,7 +42,7 @@ public class TextButton extends Table {
     }
 
     private void init(String defaultText, String defaultBg, String defaultPressedBg) {
-        this.fnt = new BitmapFont(Gdx.files.internal("font.fnt"));
+        this.fnt = ResourceManager.Get().getFnt();
         this.labelStyle = new Label.LabelStyle(fnt, Color.WHITE);
         this.buttonTextLabel = new Label(defaultText, labelStyle);
         buttonTextLabel.setAlignment(Align.center);

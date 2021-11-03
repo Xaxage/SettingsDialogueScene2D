@@ -14,7 +14,7 @@ public abstract class AbstractDialog extends Table {
     }
 
     private void build(String title) {
-        setBackground(ResourceManager.Get().obtainDrawable("dialog-inside-box"));
+        setBackground(ResourceManager.Get().obtainDrawable("dialog-bg"));
 
         Table header = buildHeader(title);
         add(header).growX();
@@ -23,8 +23,8 @@ public abstract class AbstractDialog extends Table {
         Table content = buildContent();
         content.setBackground(ResourceManager.Get().obtainDrawable("dialog-inside-box"));
 
-        pad(5);//Distance between main table and inner background
-        add(content).grow().pad(5);
+        pad(10);//Distance between main table and inside-box
+        add(content).grow().pad(10);//Distance between dialob-bg and inside-box
     }
 
     //Header using Stack
@@ -55,20 +55,19 @@ public abstract class AbstractDialog extends Table {
 
     private Table buildHeader(String title) {
         final Table headerTable = new Table();
-        headerTable.padLeft(10).padRight(10);
+        headerTable.padLeft(20).padRight(20);
         final ImageButton crossButton = new ImageButton(ResourceManager.Get().obtainDrawable("ic-close"));
 
         final Label titleLabel = new Label(title, ResourceManager.Get().getLabelStyle());
         final Table coverTable = new Table();
         coverTable.setBackground(ResourceManager.Get().obtainDrawable("header-flexible"));
         coverTable.padRight(50).padLeft(50);
-        coverTable.add(titleLabel).padBottom(10).padLeft(50).padRight(40);
+        coverTable.add(titleLabel).padBottom(14).padLeft(50).padRight(40);
 
-        final int crossImageSize = 45;
+        final int crossImageSize = 40;
         headerTable.add().size(crossImageSize);
-        headerTable.add(coverTable).size(250, 60).expandX();
+        headerTable.add(coverTable).size(250, 70).expandX();
         headerTable.add(crossButton).size(crossImageSize);
-
 
         return headerTable;
     }

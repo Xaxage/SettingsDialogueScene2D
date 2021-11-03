@@ -1,0 +1,30 @@
+splashScreen.png
+size: 820, 1392
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+btn-green-pressed
+  rotate: false
+  xy: 0, 0
+  size: 38, 44
+  split: 17, 17, 22, 18
+  pad: 0, 0, 0, 0
+  orig: 38, 44
+  offset: 0, 0
+  index: -1
+btn-green
+  rotate: false
+  xy: 38, 0
+  size: 38, 44
+  split: 17, 17, 18, 22
+  pad: 0, 0, 0, 0
+  orig: 38, 44
+  offset: 0, 0
+  index: -1
+screen-bg
+  rotate: false
+  xy: 76, 0
+  size: 744, 1392
+  orig: 744, 1392
+  offset: 0, 0
+  index: -1
