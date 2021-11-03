@@ -8,7 +8,6 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -36,8 +35,6 @@ public class LoadingScreen extends ApplicationAdapter implements Screen {
 
     private float timerBuffer;
     private float progress;
-
-
 
 
     public LoadingScreen(Game game) {
@@ -115,7 +112,6 @@ public class LoadingScreen extends ApplicationAdapter implements Screen {
         renderer.rect(21, 41, progress * (viewport.getScreenWidth() - 43), 47); //21,41,screenWidth-40(is a max),47
         renderer.end();
     }
-
 
 
     @Override

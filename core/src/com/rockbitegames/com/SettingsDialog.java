@@ -98,7 +98,7 @@ public class SettingsDialog extends AbstractDialog {
         Label googleLabel = new Label("Google", ResourceManager.Get().getLabelStyle());
         googleLabel.setAlignment(Align.left);
 
-        ToggleButton linkButton = new ToggleButton("Link","Unlink","btn-red","btn-red-pressed");
+        ToggleButton linkButton = new ToggleButton("Link", "Unlink", "btn-red", "btn-red-pressed");
 
         table.add(googleLabel).expandX().width(120).left();
         table.add(linkButton).expandX().width(120).right();
@@ -110,13 +110,13 @@ public class SettingsDialog extends AbstractDialog {
         Table table = new Table();
         table.defaults().space(30);
 
-        TextButton switchButton = new TextButton("Switch account","btn-green","btn-green-pressed");
+        TextButton switchButton = new TextButton("Switch account", "btn-green", "btn-green-pressed");
         switchButton.pad(10);
 
-        TextButton saveButton = new TextButton("Save","btn-yellow","btn-yellow-pressed");
+        TextButton saveButton = new TextButton("Save", "btn-yellow", "btn-yellow-pressed");
         switchButton.pad(10);
 
-        Label UID = new Label("uid:12jk31298312m412",ResourceManager.Get().getLabelStyle());
+        Label UID = new Label("uid:12jk31298312m412", ResourceManager.Get().getLabelStyle());
 
 
         table.add(switchButton).grow().row();
